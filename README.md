@@ -1,4 +1,4 @@
-# VJournal README
+# VJournal
 This is a simple web application called VJournal, built using Node.js, Express.js, and EJS. It allows users to create blog posts, view all posts on the home page, and view individual posts by clicking on the post title. It also has an about and contact page.
 
 ## Technologies Used
