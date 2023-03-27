@@ -10,8 +10,9 @@
         <%= post.content %>
     <% } else {  %>
         <%= post.content.substring(0, 150) + "..." %>
+        <a href=<%="/posts/"+post.title%>>Read More</a>
      <% } %>
-    </p>
+</p>
 <% }); %>
 
 <%- include("partials/footer") %>
