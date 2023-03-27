@@ -3,4 +3,9 @@
 <h1> Home </h1>
 <p> <%= p_data %> </p>
 
+<% posts.forEach(function(post){ %>
+<h2 class="modal-title"><%= post.title %></h5>
+<p><%= post.content %></p>
+<% }); %>
+
 <%- include("partials/footer") %>
