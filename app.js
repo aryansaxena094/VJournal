@@ -21,7 +21,6 @@ app.get("", function(req, res){
 
 app.get("/about", function(req, res){
   res.render("about",{aboutContent:aboutContent});
-
 });
 
 app.get("/contact", function(req, res){
@@ -41,7 +40,7 @@ app.get("/posts/:title",function(req, res){
       res.render("post",{post_title : post.title, post_content : post.content});
     }
   });
-  
+
 });
 
 app.post("/compose", function(req, res){
