@@ -18,7 +18,17 @@ app.get("", function(req, res){
   res.render("home", {p_data: homeStartingContent});
 });
 
+app.get("/about", function(req, res){
+  res.render("about",{aboutContent:aboutContent});
+});
 
+app.get("/contact", function(req, res){
+  res.render("contact",{contactContent: contactContent});
+});
+
+app.get("/compose", function(req, res){
+  res.render("compose");
+});
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");
