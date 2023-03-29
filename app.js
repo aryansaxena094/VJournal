@@ -4,27 +4,25 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const { forEach, lowerCase } = require("lodash");
-
+const portnum = 3999;
 const homeStartingContent = "adipiscing.";
 const aboutContent = "tincidunt dui.";
 const contactContent = "nam libero.";
-
 const app = express();
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 const posts = [];
-
 app.get("", function(req, res){
-  res.render("home", {p_data: homeStartingContent, posts:posts});
+  res.render("home", { p_data: homeStartingContent, posts:posts });
 });
 
 app.get("/about", function(req, res){
-  res.render("about",{aboutContent:aboutContent});
+  res.render("about",{ aboutContent:aboutContent });
 });
 
 app.get("/contact", function(req, res){
-  res.render("contact",{contactContent: contactContent});
+  res.render("contact",{ contactContent: contactContent });
 });
 
 app.get("/compose", function(req, res){
@@ -37,10 +35,9 @@ app.get("/posts/:title",function(req, res){
   posts.forEach(function(post){
     const storedTitle = lowerCase(post.title);
     if(storedTitle === requestedtitle){
-      res.render("post",{post_title : post.title, post_content : post.content});
+      res.render("post", { post_title : post.title, post_content : post.content});
     }
   });
-
 });
 
 app.post("/compose", function(req, res){
@@ -52,6 +49,6 @@ app.post("/compose", function(req, res){
   res.redirect("/");
 });
 
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
+app.listen(portnum, function() {
+  console.log("Server started on port "+portnum);
 });
